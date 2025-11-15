@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome! Type 'exit' anytime to quit.\n");
+
+        while (true) {
+            System.out.print("Enter your name: ");
+            String name = sc.nextLine();
+            if (name.equalsIgnoreCase("exit")) break;
+
+            int age = 0;
+            while (true) {
+                System.out.print("Enter your age: ");
+                String ageInput = sc.nextLine();
+                if (ageInput.equalsIgnoreCase("exit")) {
+                    sc.close();
+                    return;
+                }
+                try {
+                    age = Integer.parseInt(ageInput);
+                    if (age < 0) {
+                        System.out.println("Age cannot be negative. Try again.");
+                    } else {
+                        break;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid number. Please enter a valid age.");
+                }
+            }
+
+            System.out.println("Hello " + name + ", you are " + age + " years old.");
+
+            // Fun message based on age
+            if (age < 13) {
+                System.out.println("You're just a kid full of energy!");
+            } else if (age <= 19) {
+                System.out.println("Enjoy your teenage years!");
+            } else if (age <= 50) {
+                System.out.println("Keep working hard and achieving your goals!");
+            } else {
+                System.out.println("Wisdom comes with age. Keep inspiring others!");
+            }
+
+            System.out.println(); // blank line before next user
+        }
+
+        sc.close();
+        System.out.println("Goodbye!");
+    }
+}
