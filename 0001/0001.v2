@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+        sc.nextLine(); // consume leftover newline
+
+        System.out.println("Hello " + name + ", you are " + age + " years old.");
+
+        // Personalized message based on age
+        if (age < 13) {
+            System.out.println("Wow, " + name + "! You're just a kid full of energy!");
+        } else if (age <= 19) {
+            System.out.println("Hey " + name + ", enjoy your teenage years!");
+        } else if (age <= 50) {
+            System.out.println(name + ", keep working hard and achieving your goals!");
+        } else {
+            System.out.println(name + ", wisdom comes with age. Keep inspiring others!");
+        }
+
+        sc.close();
+    }
+}
